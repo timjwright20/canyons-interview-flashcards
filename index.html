@@ -44,7 +44,7 @@ button.small{font-size:14px;padding:7px 12px}
 footer{text-align:center;color:#5c6578;font-size:12px;padding:0 0 14px}
 @media (max-width:600px){.face{padding:20px 18px}button.b{padding:12px 14px;font-size:16px}h1{font-size:14px}}
 </style></head><body>
-<header><span class="onair"><i></i>ON AIR</span><h1>Canyons Interview Flashcards — Tim Wright · Broadcast & Video Production Instructor</h1>
+<header><span class="onair"><i></i>ON AIR</span><h1>Canyons Interview Flashcards — Tim Wright · Broadcast and Video Production Instructor</h1>
 <button class="b small" id="resetBtn" title="Clear Got it / Review marks">Reset marks</button></header>
 <nav class="tabs" id="tabs"></nav>
 <div class="bar">
@@ -78,7 +78,7 @@ const $=id=>document.getElementById(id);
 function pool(){return CARDS.filter(c=>(deck==="All"||c.deck===deck)&&(!$("reviewOnly").checked||marks[c.id]!=="got"))}
 function shuffleArr(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function rebuild(keep){const curId=order[pos]&&order[pos].id;order=pool();if(shuffled)shuffleArr(order);pos=0;if(keep&&curId){const k=order.findIndex(c=>c.id===curId);if(k>=0)pos=k}render()}
-function esc(s){return s.replace(/[&<>"]/g,m=>({"&":"&","<":"<",">":">",'"':"""}[m]))}
+function esc(s){return s.replace(/[&<>"]/g,m=>({"&":"\x26amp;","<":"\x26lt;",">":"\x26gt;",'"':"\x26quot;"}[m]))}
 function markPill(c){const m=marks[c.id];return m==="got"?'<span class="pill got">✓ Got it</span>':m==="rev"?'<span class="pill rev">↻ Review</span>':''}
 function render(){
  const card=$("card");card.classList.toggle("flip",false);flipped=false;
